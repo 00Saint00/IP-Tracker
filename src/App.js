@@ -22,7 +22,7 @@ function App() {
         );
         const data = await res.json();
         setAddress(data);
-        console.log(data);
+        // console.log(data);
       };
 
       getInitialData();
