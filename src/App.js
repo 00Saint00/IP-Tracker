@@ -77,7 +77,7 @@ function App() {
               onChange={(e) => setIpAddress(e.target.value)}
             />
             <button
-              type="submit"
+              // type="submit"
               className="bg-black py-4 px-4 hover:opacity-80 rounded-r-lg"
             >
               <img src={arrow} alt="" />
