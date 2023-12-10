@@ -1,10 +1,12 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useMemo } from "react";
 import { Marker, Popup, useMap } from "react-leaflet";
 import icon from "./icon";
 import "./index.css";
 
 export default function Markerposition({ address }) {
-  const position = [address.location.lat, address.location.lng];
+  const position = useMemo(() => {
+    return [address.location.lat, address.location.lng];
+  }, [address.location.lat, address.location.lng]);
   const map = useMap();
 
   const popupStyle = {

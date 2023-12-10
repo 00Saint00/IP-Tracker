@@ -34,7 +34,11 @@ function App() {
   async function getAddress() {
     const res = await fetch(
       `https://geo.ipify.org/api/v2/country,city?apiKey=at_MxvRSmEBpijth2GOLQaaP8SGYPPYN&${
-        checkIpAddress.test(ipAddress) ? `ipAddress=${ipAddress}` : ""
+        checkIpAddress.test(ipAddress)
+          ? `ipAddress=${ipAddress}`
+          : checkDomain.test(ipAddress)
+          ? `domain=${ipAddress}`
+          : ""
       }`
     );
     const data = await res.json();
@@ -42,7 +46,9 @@ function App() {
   }
 
   function handleSubmit(e) {
-    e.preventDefault(getAddress());
+    e.preventDefault();
+    getAddress();
+    setIpAddress("");
   }
 
   return (
